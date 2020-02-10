@@ -3,7 +3,8 @@ A yelp style site for campers and outdoor enthusiasts. Find information and what
 
 # Technology Used
 Javascript, Express, Node.js, Bootstrap, CSS.
-NPM packages: body-parser, express, express-session, method-override, mongoose, passport, passport-local, passport-local-mongoose.
+NPM packages: 
+- body-parser, express, express-session, method-override, mongoose, passport, passport-local, passport-local-mongoose.
 
 # Design
 Users: 
