@@ -2,7 +2,7 @@
 A yelp style site for campers and outdoor enthusiasts. Find information and what others think about camping spots to plan your next trip!
 
 # Technology Used
-Javascript, Express, Node.js, Bootstrap, CSS.
+Javascript, Express, Node.js, MongoDB, Bootstrap, CSS.
 
 NPM packages: 
 - body-parser, express, express-session, method-override, mongoose, passport, passport-local, passport-local-mongoose.
