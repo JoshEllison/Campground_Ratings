@@ -8,9 +8,10 @@ NPM packages:
 - body-parser, express, express-session, method-override, mongoose, passport, passport-local, passport-local-mongoose.
 
 # Design
-Users: 
-- Can create campground posts and have the sole ability to edit/delete their posts.
-- Can comment on any other users post
-- login secured by passport
+Full CRUD for Campgrounds and Comments using callback RESTful routing.
 
-UI: Bootstrap driven to decrease development time. Conditional logic for elements depending on the user status (logged in, owner of post, etc).
+User Model with Authentication and Authorization: 
+- Can't create something if not logged in. Only able to view Campgrounds and Comments.
+- Can't edit or delete if the user isn't logged in and if the item in question doesn't belong to user (campground/comment).
+
+UI: Bootstrap driven to decrease development time. Conditional logic for rendering elements depending on the user status (logged in, owner of post, etc).
