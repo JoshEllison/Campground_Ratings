@@ -23,23 +23,23 @@ const seeds = [
 async function seedDB(){
    await Campground.remove({});
    console.log('Campgrounds removed');
-   await Comment.remove({});
-   console.log('Comments removed');
-
-   for (const seed of seeds) {
-     let campground = await Campground.create(seed);
-     console.log('Campground created');
-     let comment = await Comment.create(
-       {
-         text: 'This place is great, but I wish there was internet',
-         author: 'Stumpy'
-       }
-     )
-     console.log('Comment created');
-     campground.comments.push(comment);
-     campground.save();
-     console.log('Comment added to campground');
-   }
+   // await Comment.remove({});
+   // console.log('Comments removed');
+   //
+   // for (const seed of seeds) {
+   //   let campground = await Campground.create(seed);
+   //   console.log('Campground created');
+   //   let comment = await Comment.create(
+   //     {
+   //       text: 'This place is great, but I wish there was internet',
+   //       author: 'Stumpy'
+   //     }
+   //   )
+   //   console.log('Comment created');
+   //   campground.comments.push(comment);
+   //   campground.save();
+   //   console.log('Comment added to campground');
+   // }
     //add a few comments
 }
 
