@@ -13,9 +13,9 @@
   "author": "Josh Ellison",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JoshEllison/YelpCampgrounds/issues"
+    "url": "https://github.com/JoshEllison/Campground_Ratings/issues"
   },
-  "homepage": "https://github.com/JoshEllison/YelpCampgrounds#readme",
+  "homepage": "https://github.com/JoshEllison/Campground_Ratings#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",
