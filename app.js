@@ -26,7 +26,7 @@ mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 mongoose.connect(mongodbURI || 'mongodb://localhost/yelp_camp');
 
-// 'mongodb+srv://josh4ellison:ProjectPassword1212@dbcluster-jbbih.mongodb.net/test?retryWrites=true&w=majority'
+
 
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
