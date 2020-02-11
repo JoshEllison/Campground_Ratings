@@ -19,13 +19,14 @@ router.get('/', (req, res) => {
 //CREATE - add new campground to DB
 router.post('/', middleware.isLoggedIn, (req, res) => {
     let name = req.body.name;
+    let price = req.body.price;
     let image = req.body.image;
     let desc = req.body.description;
     let author = {
       id: req.user._id,
       username: req.user.username
     };
-    let newCampground = {name: name, image: image, description: desc, author: author};
+    let newCampground = {name: name, price: price, image: image, description: desc, author: author};
     //create a new campground and save to DB
     Campground.create(newCampground, (err, newlyCreated) => {
       if (err) {
@@ -57,7 +58,7 @@ router.get('/:id', (req, res) => {
 // EDIT - Campground Route
 router.get('/:id/edit', middleware.checkCampgroundOwnership, (req, res) => {
     Campground.findById(req.params.id, (err, foundCampground) => {
-          res.render('campgrounds/edit', {campground: foundCampground});
+      res.render('campgrounds/edit', {campground: foundCampground});
     });
 });
 
