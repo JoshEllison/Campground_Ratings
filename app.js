@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Campground = require('./models/campground');
@@ -18,21 +18,20 @@ const commentRoutes = require('./routes/comments')
 const campgroundRoutes = require('./routes/campgrounds')
 const indexRoutes = require('./routes/index')
 
-// const mongoURI = 'mongodb://localhost:27017/yelp_camp';
+
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
-
 mongoose.connect('mongodb+srv://josh4ellison:ProjectPassword1212@dbcluster-jbbih.mongodb.net/test?retryWrites=true&w=majority');
 
 // mongodb+srv://josh4ellison:ProjectPassword1212@dbcluster-jbbih.mongodb.net/test?retryWrites=true&w=majority
 
-
-
+//works but errors on first button click
+// 'mongodb://heroku_z7l5cnzr:ProjectPassword1212@ds237723.mlab.com:37723/heroku_z7l5cnzr';
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
-db.on('connected', () => console.log('mongo connected: ', 'mongo'));
+db.on('connected', () => console.log('mongo connected: ', 'mongodb://heroku_z7l5cnzr:ProjectPassword1212@ds237723.mlab.com:37723/heroku_z7l5cnzr'));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
 // open the connection to mongo
