@@ -25,7 +25,7 @@ mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 // mongodb+srv://<username>:<password>@dbcluster-jbbih.mongodb.net/test?retryWrites=true&w=majority
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://josh4ellison:ProjectPassword1212@dbcluster-jbbih.mongodb.net/test?retryWrites=true&w=majority';
+const MONGODB_URI = 'mongodb://localhost/yelp_camp' || 'mongodb+srv://josh4ellison:ProjectPassword1212@dbcluster-jbbih.mongodb.net/test?retryWrites=true&w=majority';
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
