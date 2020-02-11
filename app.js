@@ -1,7 +1,6 @@
-require('dotenv').config()
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Campground = require('./models/campground');
@@ -19,16 +18,16 @@ const commentRoutes = require('./routes/comments')
 const campgroundRoutes = require('./routes/campgrounds')
 const indexRoutes = require('./routes/index')
 
-const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/yelp_camp';
+// const mongoURI = 'mongodb://localhost:27017/yelp_camp';
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect(mongoURI, { useNewUrlParser: true },
-    () => console.log('MongoDB connection established:', mongoURI)
-);
+
+mongoose.connect('mongodb+srv://josh4ellison:ProjectPassword1212@dbcluster-jbbih.mongodb.net/test?retryWrites=true&w=majority');
 
 // mongodb+srv://josh4ellison:ProjectPassword1212@dbcluster-jbbih.mongodb.net/test?retryWrites=true&w=majority
+
 
 
 // Error / success
