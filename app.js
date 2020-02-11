@@ -19,13 +19,13 @@ const commentRoutes = require('./routes/comments')
 const campgroundRoutes = require('./routes/campgrounds')
 const indexRoutes = require('./routes/index')
 
-const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/yelp_camp';
+const mongoURI = 'mongodb+srv://josh4ellison:ProjectPassword1212@dbcluster-jbbih.mongodb.net/test?retryWrites=true&w=majority' || 'mongodb://localhost:27017/yelp_camp';
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect(mongoURI,
+mongoose.connect(mongoURI, { useNewUrlParser: true },
     () => console.log('MongoDB connection established:', mongoURI)
 );
 
