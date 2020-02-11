@@ -32,7 +32,7 @@ mongoose.connect('mongodb+srv://josh4ellison:ProjectPassword1212@dbcluster-jbbih
 
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
-db.on('connected', () => console.log('mongo connected: '));
+db.on('connected', () => console.log('mongo connected: ', 'mongo'));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
 // open the connection to mongo
