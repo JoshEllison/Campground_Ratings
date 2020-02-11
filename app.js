@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Campground = require('./models/campground');
@@ -11,7 +11,7 @@ const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 const methodOverride = require('method-override');
 const flash = require('connect-flash');
-
+const db = mongoose.connection;
 
 //requiring routes
 const commentRoutes = require('./routes/comments')
@@ -23,8 +23,16 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect('mongodb+srv://josh4ellison:ProjectPassword1212@dbcluster-jbbih.mongodb.net/test?retryWrites=true&w=majority');
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 // mongodb+srv://<username>:<password>@dbcluster-jbbih.mongodb.net/test?retryWrites=true&w=majority
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://josh4ellison:ProjectPassword1212@dbcluster-jbbih.mongodb.net/test?retryWrites=true&w=majority';
+// Error / success
+db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
+db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
+db.on('disconnected', () => console.log('mongo disconnected'));
+
+// open the connection to mongo
+db.on('open' , ()=>{});
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
@@ -60,4 +68,4 @@ app.use('/', indexRoutes);
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/comments', commentRoutes);
 
-app.listen(port, () => console.log(`YelpCamp app listening on port ${port}!`))
+app.listen(PORT, () => console.log(`YelpCamp app listening on port ${PORT}!`))
