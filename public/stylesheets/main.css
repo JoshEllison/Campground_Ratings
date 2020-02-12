@@ -18,3 +18,21 @@
 .delete-form {
   display: inline;
 }
+
+.iconTitle {
+  text-align: center;
+  padding-bottom: 20px;
+      color: forestgreen;
+}
+
+.jumbotron {
+  text-align: center;
+}
+
+.jumbotron h1 {
+  padding-bottom: 20px;
+}
+
+.jumbotron p {
+  padding-bottom: 10px;
+}
