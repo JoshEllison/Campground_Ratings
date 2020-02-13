@@ -14,8 +14,10 @@ const methodOverride = require('method-override');
 const flash = require('connect-flash');
 const db = mongoose.connection;
 const mongodbURI = process.env.MONGODB_URI;
+
 //requiring routes
 const commentRoutes = require('./routes/comments')
+const reviewRoutes = require("./routes/reviews")
 const campgroundRoutes = require('./routes/campgrounds')
 const indexRoutes = require('./routes/index')
 
@@ -70,5 +72,6 @@ app.use((req, res, next) => {
 app.use('/', indexRoutes);
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/comments', commentRoutes);
+app.use("/campgrounds/:id/reviews", reviewRoutes);
 
 app.listen(PORT, () => console.log(`YelpCamp app listening on port ${PORT}!`))
