@@ -4,6 +4,7 @@ const Campground = require('../models/campground');
 const middleware = require('../middleware'); //automatically requires index.js
 const NodeGeocoder = require('node-geocoder');
 const Review = require("../models/review");
+const Comment = require('../models/comment');
 
 const options = {
   provider: 'google',
@@ -119,8 +120,8 @@ router.delete("/:id", middleware.checkCampgroundOwnership, function (req, res) {
             // deletes all comments associated with the campground
             Comment.remove({"_id": {$in: campground.comments}}, function (err) {
                 if (err) {
-                    console.log(err);
-                    return res.redirect("/campgrounds");
+                  console.log(err);
+                  res.redirect("/campgrounds");
                 }
                 // deletes all reviews associated with the campground
                 Review.remove({"_id": {$in: campground.reviews}}, function (err) {
