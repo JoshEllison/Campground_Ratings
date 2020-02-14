@@ -24,6 +24,10 @@ router.get('/', (req, res) => {
       if (err) {
         console.log(err);
       } else {
+        if (allCampgrounds.length < 1) {
+          req.flash('error', 'Campground not found. Please try a different search');
+          return res.redirect('back');
+        }
         res.render('campgrounds/index', {campgrounds: allCampgrounds});
       }
     });
