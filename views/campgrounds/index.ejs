@@ -1,16 +1,23 @@
 <%- include("../partials/header") %>
 
-
-  <!-- <div class = 'container'> -->
     <header class='jumbotron'>
       <div class="container">
-        <h1>Welcome to the Campgrounds page!</h1>
+        <h1>Welcome to YelpCamp!</h1>
         <p>Hand-picked campgrounds from all over the US!</p>
         <p>
           <a class='btn btn-primary btn-lg' href="/campgrounds/new">Add New Campground</a>
         </p>
+        <p>
+        <form class="form-inline" action="/campgrounds" method="GET">
+          <div class="form-group">
+            <input type="text" name="search" placeholder="Campground search..." class="form-control">
+            <input type="submit" value="Search" class="btn btn-default">
+          </div>
+        </form>
+        </p>
       </div>
     </header>
+
     <div class="iconTitle">
       <h3>Our Most Popular Campgrounds</h3>
     </div>
@@ -38,6 +45,5 @@
         </div>
       <% }); %>
     </div>
-  <!-- </div> -->
 
 <%- include("../partials/footer") %>

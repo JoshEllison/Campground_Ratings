@@ -17,15 +17,26 @@ var geocoder = NodeGeocoder(options);
 
 //INDEX - show all campgrounds
 router.get('/', (req, res) => {
-  console.log(req.user);
-  // Get all campgrounds from DB
-  Campground.find({}, (err, allCampgrounds) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render('campgrounds/index', {campgrounds: allCampgrounds});
-    }
-  });
+  if (req.query.search) {
+    const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+    // Get all campgrounds from DB
+    Campground.find({name: regex}, (err, allCampgrounds) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render('campgrounds/index', {campgrounds: allCampgrounds});
+      }
+    });
+  } else {
+    // Get all campgrounds from DB
+    Campground.find({}, (err, allCampgrounds) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render('campgrounds/index', {campgrounds: allCampgrounds});
+      }
+    });
+  }
 });
 
 //CREATE - add new campground to DB
@@ -138,5 +149,13 @@ router.delete("/:id", middleware.checkCampgroundOwnership, function (req, res) {
         }
     });
 });
+
+/*
+found this code on https://stackoverflow.com/questions/38421664/fuzzy-searching-with-mongodb
+not my own code
+*/
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 module.exports = router;

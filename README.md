@@ -8,19 +8,20 @@ NPM packages:
 - body-parser, express, express-session, method-override, mongoose, passport, passport-local, passport-local-mongoose, node-geocoder, moment, dotenv.
 
 # Design
-Full CRUD for Campgrounds and Comments using callback RESTful routing.
+Full CRUD for Campgrounds, Comments, and Ratings using callback RESTful routing.
 
 User Model with Authentication and Authorization:
-- Can't create something if not logged in. Only able to view Campgrounds and Comments.
-- Can't edit or delete if the user isn't logged in and if the item in question doesn't belong to user (campground/comment).
+- Can't create something if not logged in. Only able to view Campgrounds, Comments, Ratings.
+- Can't edit or delete if the user isn't logged in and if the item in question doesn't belong to user (campground/comment/rating).
+
+Fuzzy Search:
+- Able to search campground names on the campgrounds page. 
 
 UI: Bootstrap driven to decrease development time. Conditional logic for rendering elements depending on the user status (logged in, owner of post, etc).
 
 # Next Steps
-User Profiles, password reset, search, and social share
+User Profiles, password reset, and social share
 
-# Challenges
-As the project grows so does the callback.
 
 # Live Site Link
 https://campground-reviews.herokuapp.com/
