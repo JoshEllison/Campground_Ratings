@@ -38,5 +38,4 @@ UI: Bootstrap driven to decrease development time. Conditional logic for renderi
 User Profiles, password reset, and social share
 
 # Key Take Away
-
-Even though I am confortable using pre ES6 javascript I can see the power and potential of implementing it as my best practice. An area where it is very evident is when dealing with Callbacks. Implementing routing with promises would be much cleaner and more powerful enabling async.
+Implementing routing with promises would be much cleaner and more powerful
