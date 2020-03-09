@@ -12,7 +12,7 @@ To make a site experience similar to yelp while improving my skills with the tec
 
 # Technology Used
 
-Javascript, Express, Node.js, MongoDB, Bootstrap, CSS.
+Javascript, Express, Node.js, MongoDB, Bootstrap.
 
 NPM packages:
 
